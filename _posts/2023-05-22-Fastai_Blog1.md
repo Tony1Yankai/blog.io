@@ -46,7 +46,9 @@ Here are some further explanation of the variable in dataloader:
 | splitter | using RandomSplitter to  split the validation data from the datasets, here 20% data is used as validation set |
 | get_y | getting all the label from the parent folder | 
 |itmes_tfms| resize te images using 'squish' method |
-    
+
+more information about dataloader can be found in https://docs.fast.ai/data.load.html
+
   ### The API Fine_tune()
 In general, the purpose of the fine_tune method is to utilize the feature representation capability of a pre-trained model through transfer learning and fine-tuning. 
 It involves training the model on a new dataset to improve its performance and generalization.
