@@ -71,7 +71,8 @@ Here is an example given by Jeremy in Lecture3:
   x = torch.linspace(-2,2, step = 20)[:,None] 
   y = add_noise(f(x),0.3,1.5)  
   ```
-  
+  ![image](https://github.com/Tony1Yankai/blog.io/assets/132538779/7c01a4a7-1f5a-480b-94dd-2e67a1a1a9bc)
+
   3. define a loss function to access the difference between quadratic function and real data(the data adding the noise)
   
   ``` python
@@ -101,7 +102,38 @@ Here is an example given by Jeremy in Lecture3:
     
   print(f'loss = {loss:.2f}')
   ```
-   
+  5. put the abc updated processing into a loop to do the iteration
+  
+  ``` python
+  for i in range(5):
+    loss = quad_mse(abc)
+    loss.backward()
+    with torch.no_grad(): abc -= abc.grad*0.01
+ ```
+ As we can see, the loss function is a way to indicate the loss. So our purpose is to reduce the loss as much as we can to achieve a good prediction result.
+ 
+ ## Activate function
+    The example above use a quadratic function to approximate the real-world complex data. While quadratic function is not a good option to do the approximation, the function ReLu is a commonly used function to do that work in neural network.
+    
+- ReLu function:
+
+The code to create a Relu function and plot its shape:
+
+``` python
+def rectified_linear(m,b,x):
+  y = m*x + b
+  return torch.clip(y,0.)
+```
+
+![image](https://github.com/Tony1Yankai/blog.io/assets/132538779/727d14a5-8992-48a8-aea7-057e816961be)
+
+By combining or stacking multiple ReLU functions, neural networks can learn more complex nonlinear relationships, enabling them to better approximate and simulate complex real-world data. As the ReLU function maintains a linear relationship in the positive region (i.e., identity mapping), it can fit different input data by adjusting the weights and biases. By stacking multiple layers of ReLU functions, the network gradually learns more complex function relationships, thereby improving the model's expressive power and fitting ability.
+
+
+
+
+
+
    
    
    
