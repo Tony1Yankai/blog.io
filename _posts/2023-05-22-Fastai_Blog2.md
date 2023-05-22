@@ -56,7 +56,7 @@ The x axis indicates the time needs to consume when training the model and the y
 
 
 Here is an example given by Jeremy in Lecture3:
-
+Entire Code can be found in:https://www.kaggle.com/code/jhoward/how-does-a-neural-net-really-work
   1. Create a quadratic function
   ``` python
   def f(x): return 3*x**2+2*x+1
